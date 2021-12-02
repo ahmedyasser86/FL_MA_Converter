@@ -33,13 +33,14 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("GE SS Two Medium", 80F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(270, 155);
+            this.label1.Font = new System.Drawing.Font("GE SS Two Medium", 40F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(51, 225);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(254, 143);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Add";
+            this.label1.Size = new System.Drawing.Size(742, 72);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "لم يتم برمجة هذا الجزء بعد";
             // 
             // Add
             // 

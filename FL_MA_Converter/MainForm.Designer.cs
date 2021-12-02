@@ -51,7 +51,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(298, 86);
             this.label1.TabIndex = 2;
-            this.label1.Text = "إسم التطبيق";
+            this.label1.Text = "المُنسق";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnl_Top
@@ -171,7 +171,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
+            this.Text = "المُنسق";
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.pnl_Top.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

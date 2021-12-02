@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace FL_MA_Converter
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         string Clicked_Label = null;
         Font NormalFont;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -29,6 +29,8 @@ namespace FL_MA_Converter
             lbl_Home.MouseLeave += (S, E) => { Nav_Leave(lbl_Home); };
 
             NormalFont = lbl_Add.Font;
+
+            Nav_Click(lbl_Home, Forms.home);
         }
 
         private void Nav_Buttons(object sender, EventArgs e)
@@ -38,15 +40,15 @@ namespace FL_MA_Converter
             switch (name)
             {
                 case "lbl_Home":
-                    Nav_Click(lbl_Home, null);
+                    Nav_Click(lbl_Home, Forms.home);
                     break;
 
                 case "lbl_Add":
-                    Nav_Click(lbl_Add, null);
+                    Nav_Click(lbl_Add, Forms.add);
                     break;
 
                 case "lbl_Show":
-                    Nav_Click(lbl_Show, null);
+                    Nav_Click(lbl_Show, Forms.show);
                     break;
             }
         }
@@ -77,6 +79,16 @@ namespace FL_MA_Converter
             pnl_Clicked.Width = lbl.Width;
             pnl_Clicked.Visible = true;
             pnl_Clicked.BringToFront();
+
+            // Open The Form
+            ShowForm(frm);
+        }
+
+        private void ShowForm(Form frm)
+        {
+            pnl_Holder.Controls.Clear();
+            pnl_Holder.Controls.Add(frm);
+            frm.Show();
         }
 
         private void Nav_Hover(Label lbl)

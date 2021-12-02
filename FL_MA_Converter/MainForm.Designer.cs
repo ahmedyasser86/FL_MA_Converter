@@ -1,6 +1,6 @@
 ﻿namespace FL_MA_Converter
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.pnl_Top = new System.Windows.Forms.Panel();
+            this.pnl_Clicked = new System.Windows.Forms.Panel();
+            this.pnl_Hover = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_Add = new System.Windows.Forms.Label();
             this.lbl_Show = new System.Windows.Forms.Label();
             this.lbl_Home = new System.Windows.Forms.Label();
-            this.pnl_Hover = new System.Windows.Forms.Panel();
-            this.pnl_Clicked = new System.Windows.Forms.Panel();
+            this.pnl_Holder = new System.Windows.Forms.Panel();
             this.pnl_Top.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +66,25 @@
             this.pnl_Top.Name = "pnl_Top";
             this.pnl_Top.Size = new System.Drawing.Size(845, 86);
             this.pnl_Top.TabIndex = 3;
+            // 
+            // pnl_Clicked
+            // 
+            this.pnl_Clicked.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnl_Clicked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(87)))));
+            this.pnl_Clicked.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Clicked.Name = "pnl_Clicked";
+            this.pnl_Clicked.Size = new System.Drawing.Size(27, 2);
+            this.pnl_Clicked.TabIndex = 5;
+            this.pnl_Clicked.Visible = false;
+            // 
+            // pnl_Hover
+            // 
+            this.pnl_Hover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
+            this.pnl_Hover.Location = new System.Drawing.Point(474, 33);
+            this.pnl_Hover.Name = "pnl_Hover";
+            this.pnl_Hover.Size = new System.Drawing.Size(27, 2);
+            this.pnl_Hover.TabIndex = 4;
+            this.pnl_Hover.Visible = false;
             // 
             // tableLayoutPanel1
             // 
@@ -130,38 +150,28 @@
             this.lbl_Home.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_Home.Click += new System.EventHandler(this.Nav_Buttons);
             // 
-            // pnl_Hover
+            // pnl_Holder
             // 
-            this.pnl_Hover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
-            this.pnl_Hover.Location = new System.Drawing.Point(474, 33);
-            this.pnl_Hover.Name = "pnl_Hover";
-            this.pnl_Hover.Size = new System.Drawing.Size(27, 2);
-            this.pnl_Hover.TabIndex = 4;
-            this.pnl_Hover.Visible = false;
+            this.pnl_Holder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_Holder.Location = new System.Drawing.Point(0, 86);
+            this.pnl_Holder.Name = "pnl_Holder";
+            this.pnl_Holder.Size = new System.Drawing.Size(845, 522);
+            this.pnl_Holder.TabIndex = 4;
             // 
-            // pnl_Clicked
-            // 
-            this.pnl_Clicked.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnl_Clicked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(87)))));
-            this.pnl_Clicked.Location = new System.Drawing.Point(0, 0);
-            this.pnl_Clicked.Name = "pnl_Clicked";
-            this.pnl_Clicked.Size = new System.Drawing.Size(27, 2);
-            this.pnl_Clicked.TabIndex = 5;
-            this.pnl_Clicked.Visible = false;
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(845, 608);
+            this.Controls.Add(this.pnl_Holder);
             this.Controls.Add(this.pnl_Top);
             this.Font = new System.Drawing.Font("GE SS Two Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "MainForm";
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.pnl_Top.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -180,6 +190,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel pnl_Hover;
         private System.Windows.Forms.Panel pnl_Clicked;
+        private System.Windows.Forms.Panel pnl_Holder;
     }
 }
 

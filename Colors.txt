@@ -1,0 +1,9 @@
+Dark Red #412234
+
+white #ffffff
+
+Yellow #FFC857
+
+Dark Blue #2E4052
+
+Green #BDD9BF

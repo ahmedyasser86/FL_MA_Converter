@@ -32,26 +32,26 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_Output = new System.Windows.Forms.RichTextBox();
+            this.btn_Copy = new System.Windows.Forms.Button();
             this.pnl_InputB = new System.Windows.Forms.Panel();
             this.pnl_Input = new System.Windows.Forms.Panel();
             this.txt_Input = new System.Windows.Forms.RichTextBox();
-            this.pnl_Down = new System.Windows.Forms.Panel();
-            this.pnl_Up = new System.Windows.Forms.Panel();
-            this.btn_Copy = new System.Windows.Forms.Button();
             this.btn_Past = new System.Windows.Forms.Button();
-            this.ch_Replace = new System.Windows.Forms.CheckBox();
-            this.ch_ReArrange = new System.Windows.Forms.CheckBox();
-            this.btn_Replace = new System.Windows.Forms.Button();
-            this.btn_ReArrange = new System.Windows.Forms.Button();
+            this.pnl_Down = new System.Windows.Forms.Panel();
             this.btn_Delete = new System.Windows.Forms.Button();
+            this.btn_ReArrange = new System.Windows.Forms.Button();
+            this.btn_Replace = new System.Windows.Forms.Button();
+            this.pnl_Up = new System.Windows.Forms.Panel();
+            this.ch_ReArrange = new System.Windows.Forms.CheckBox();
+            this.ch_Replace = new System.Windows.Forms.CheckBox();
             this.lbl_Error = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbl_Lines = new System.Windows.Forms.Label();
-            this.lbl_Words = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.lbl_Letters = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lbl_Words = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_Lines = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,7 +68,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.pnl_InputB, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.pnl_Down, 1, 3);
@@ -83,7 +83,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.82046F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.63749F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(845, 522);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -124,6 +124,23 @@
             this.txt_Output.TabIndex = 1;
             this.txt_Output.Text = "";
             // 
+            // btn_Copy
+            // 
+            this.btn_Copy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
+            this.btn_Copy.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_Copy.FlatAppearance.BorderSize = 0;
+            this.btn_Copy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Copy.Font = new System.Drawing.Font("GE SS Two Medium", 15F, System.Drawing.FontStyle.Bold);
+            this.btn_Copy.Image = global::FL_MA_Converter.Properties.Resources.Copy;
+            this.btn_Copy.Location = new System.Drawing.Point(0, 344);
+            this.btn_Copy.Name = "btn_Copy";
+            this.btn_Copy.Size = new System.Drawing.Size(375, 46);
+            this.btn_Copy.TabIndex = 4;
+            this.btn_Copy.Text = "نسخ";
+            this.btn_Copy.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Copy.UseVisualStyleBackColor = false;
+            this.btn_Copy.Click += new System.EventHandler(this.Btn_Copy_Click);
+            // 
             // pnl_InputB
             // 
             this.pnl_InputB.Controls.Add(this.pnl_Input);
@@ -161,46 +178,6 @@
             this.txt_Input.Text = "";
             this.txt_Input.TextChanged += new System.EventHandler(this.Txt_Input_TextChanged);
             // 
-            // pnl_Down
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.pnl_Down, 2);
-            this.pnl_Down.Controls.Add(this.btn_Delete);
-            this.pnl_Down.Controls.Add(this.btn_ReArrange);
-            this.pnl_Down.Controls.Add(this.btn_Replace);
-            this.pnl_Down.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_Down.Location = new System.Drawing.Point(44, 450);
-            this.pnl_Down.Name = "pnl_Down";
-            this.pnl_Down.Size = new System.Drawing.Size(756, 50);
-            this.pnl_Down.TabIndex = 6;
-            // 
-            // pnl_Up
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.pnl_Up, 2);
-            this.pnl_Up.Controls.Add(this.ch_ReArrange);
-            this.pnl_Up.Controls.Add(this.ch_Replace);
-            this.pnl_Up.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_Up.Location = new System.Drawing.Point(44, 3);
-            this.pnl_Up.Name = "pnl_Up";
-            this.pnl_Up.Size = new System.Drawing.Size(756, 25);
-            this.pnl_Up.TabIndex = 7;
-            // 
-            // btn_Copy
-            // 
-            this.btn_Copy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
-            this.btn_Copy.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_Copy.FlatAppearance.BorderSize = 0;
-            this.btn_Copy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Copy.Font = new System.Drawing.Font("GE SS Two Medium", 15F, System.Drawing.FontStyle.Bold);
-            this.btn_Copy.Image = global::FL_MA_Converter.Properties.Resources.Copy;
-            this.btn_Copy.Location = new System.Drawing.Point(0, 344);
-            this.btn_Copy.Name = "btn_Copy";
-            this.btn_Copy.Size = new System.Drawing.Size(375, 46);
-            this.btn_Copy.TabIndex = 4;
-            this.btn_Copy.Text = "نسخ";
-            this.btn_Copy.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_Copy.UseVisualStyleBackColor = false;
-            this.btn_Copy.Click += new System.EventHandler(this.Btn_Copy_Click);
-            // 
             // btn_Past
             // 
             this.btn_Past.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
@@ -218,69 +195,17 @@
             this.btn_Past.UseVisualStyleBackColor = false;
             this.btn_Past.Click += new System.EventHandler(this.Btn_Past_Click);
             // 
-            // ch_Replace
+            // pnl_Down
             // 
-            this.ch_Replace.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ch_Replace.AutoSize = true;
-            this.ch_Replace.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ch_Replace.Checked = true;
-            this.ch_Replace.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ch_Replace.FlatAppearance.BorderSize = 0;
-            this.ch_Replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ch_Replace.Location = new System.Drawing.Point(393, 1);
-            this.ch_Replace.Name = "ch_Replace";
-            this.ch_Replace.Size = new System.Drawing.Size(109, 21);
-            this.ch_Replace.TabIndex = 0;
-            this.ch_Replace.Text = "تبديل الكلمات";
-            this.ch_Replace.UseVisualStyleBackColor = true;
-            // 
-            // ch_ReArrange
-            // 
-            this.ch_ReArrange.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ch_ReArrange.AutoSize = true;
-            this.ch_ReArrange.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ch_ReArrange.Checked = true;
-            this.ch_ReArrange.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ch_ReArrange.FlatAppearance.BorderSize = 0;
-            this.ch_ReArrange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ch_ReArrange.Location = new System.Drawing.Point(255, 1);
-            this.ch_ReArrange.Name = "ch_ReArrange";
-            this.ch_ReArrange.Size = new System.Drawing.Size(92, 21);
-            this.ch_ReArrange.TabIndex = 0;
-            this.ch_ReArrange.Text = "إعادة ترتيب";
-            this.ch_ReArrange.UseVisualStyleBackColor = true;
-            // 
-            // btn_Replace
-            // 
-            this.btn_Replace.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Replace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(87)))));
-            this.btn_Replace.FlatAppearance.BorderSize = 0;
-            this.btn_Replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Replace.Font = new System.Drawing.Font("GE SS Two Medium", 12F, System.Drawing.FontStyle.Bold);
-            this.btn_Replace.Location = new System.Drawing.Point(507, 13);
-            this.btn_Replace.Name = "btn_Replace";
-            this.btn_Replace.Size = new System.Drawing.Size(138, 29);
-            this.btn_Replace.TabIndex = 5;
-            this.btn_Replace.Text = "تبديل الكلمات";
-            this.btn_Replace.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_Replace.UseVisualStyleBackColor = false;
-            this.btn_Replace.Click += new System.EventHandler(this.Btn_Replace_Click);
-            // 
-            // btn_ReArrange
-            // 
-            this.btn_ReArrange.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_ReArrange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(87)))));
-            this.btn_ReArrange.FlatAppearance.BorderSize = 0;
-            this.btn_ReArrange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ReArrange.Font = new System.Drawing.Font("GE SS Two Medium", 12F, System.Drawing.FontStyle.Bold);
-            this.btn_ReArrange.Location = new System.Drawing.Point(310, 13);
-            this.btn_ReArrange.Name = "btn_ReArrange";
-            this.btn_ReArrange.Size = new System.Drawing.Size(138, 29);
-            this.btn_ReArrange.TabIndex = 5;
-            this.btn_ReArrange.Text = "إعادة ترتيب";
-            this.btn_ReArrange.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_ReArrange.UseVisualStyleBackColor = false;
-            this.btn_ReArrange.Click += new System.EventHandler(this.Btn_ReArrange_Click);
+            this.tableLayoutPanel1.SetColumnSpan(this.pnl_Down, 2);
+            this.pnl_Down.Controls.Add(this.btn_Delete);
+            this.pnl_Down.Controls.Add(this.btn_ReArrange);
+            this.pnl_Down.Controls.Add(this.btn_Replace);
+            this.pnl_Down.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_Down.Location = new System.Drawing.Point(44, 450);
+            this.pnl_Down.Name = "pnl_Down";
+            this.pnl_Down.Size = new System.Drawing.Size(756, 50);
+            this.pnl_Down.TabIndex = 6;
             // 
             // btn_Delete
             // 
@@ -298,6 +223,81 @@
             this.btn_Delete.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btn_Delete.UseVisualStyleBackColor = false;
             this.btn_Delete.Click += new System.EventHandler(this.Btn_Delete_Click);
+            // 
+            // btn_ReArrange
+            // 
+            this.btn_ReArrange.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_ReArrange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(87)))));
+            this.btn_ReArrange.FlatAppearance.BorderSize = 0;
+            this.btn_ReArrange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ReArrange.Font = new System.Drawing.Font("GE SS Two Medium", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_ReArrange.Location = new System.Drawing.Point(310, 13);
+            this.btn_ReArrange.Name = "btn_ReArrange";
+            this.btn_ReArrange.Size = new System.Drawing.Size(138, 29);
+            this.btn_ReArrange.TabIndex = 5;
+            this.btn_ReArrange.Text = "إعادة ترتيب";
+            this.btn_ReArrange.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_ReArrange.UseVisualStyleBackColor = false;
+            this.btn_ReArrange.Click += new System.EventHandler(this.Btn_ReArrange_Click);
+            // 
+            // btn_Replace
+            // 
+            this.btn_Replace.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Replace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(87)))));
+            this.btn_Replace.FlatAppearance.BorderSize = 0;
+            this.btn_Replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Replace.Font = new System.Drawing.Font("GE SS Two Medium", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_Replace.Location = new System.Drawing.Point(507, 13);
+            this.btn_Replace.Name = "btn_Replace";
+            this.btn_Replace.Size = new System.Drawing.Size(138, 29);
+            this.btn_Replace.TabIndex = 5;
+            this.btn_Replace.Text = "تبديل الكلمات";
+            this.btn_Replace.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Replace.UseVisualStyleBackColor = false;
+            this.btn_Replace.Click += new System.EventHandler(this.Btn_Replace_Click);
+            // 
+            // pnl_Up
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.pnl_Up, 2);
+            this.pnl_Up.Controls.Add(this.ch_ReArrange);
+            this.pnl_Up.Controls.Add(this.ch_Replace);
+            this.pnl_Up.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_Up.Location = new System.Drawing.Point(44, 3);
+            this.pnl_Up.Name = "pnl_Up";
+            this.pnl_Up.Size = new System.Drawing.Size(756, 25);
+            this.pnl_Up.TabIndex = 7;
+            // 
+            // ch_ReArrange
+            // 
+            this.ch_ReArrange.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ch_ReArrange.AutoSize = true;
+            this.ch_ReArrange.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ch_ReArrange.Checked = true;
+            this.ch_ReArrange.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ch_ReArrange.FlatAppearance.BorderSize = 0;
+            this.ch_ReArrange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ch_ReArrange.Location = new System.Drawing.Point(255, 1);
+            this.ch_ReArrange.Name = "ch_ReArrange";
+            this.ch_ReArrange.Size = new System.Drawing.Size(92, 21);
+            this.ch_ReArrange.TabIndex = 0;
+            this.ch_ReArrange.Text = "إعادة ترتيب";
+            this.ch_ReArrange.UseVisualStyleBackColor = true;
+            // 
+            // ch_Replace
+            // 
+            this.ch_Replace.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ch_Replace.AutoSize = true;
+            this.ch_Replace.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ch_Replace.Checked = true;
+            this.ch_Replace.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ch_Replace.FlatAppearance.BorderSize = 0;
+            this.ch_Replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ch_Replace.Location = new System.Drawing.Point(393, 1);
+            this.ch_Replace.Name = "ch_Replace";
+            this.ch_Replace.Size = new System.Drawing.Size(109, 21);
+            this.ch_Replace.TabIndex = 0;
+            this.ch_Replace.Text = "تبديل الكلمات";
+            this.ch_Replace.UseVisualStyleBackColor = true;
             // 
             // lbl_Error
             // 
@@ -332,30 +332,30 @@
             this.panel3.Size = new System.Drawing.Size(845, 19);
             this.panel3.TabIndex = 9;
             // 
-            // label2
+            // lbl_Letters
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Font = new System.Drawing.Font("GE SS Two Light", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label2.Location = new System.Drawing.Point(795, 0);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(50, 19);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "الجمل :";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl_Letters.AutoSize = true;
+            this.lbl_Letters.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_Letters.Font = new System.Drawing.Font("GE SS Two Light", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl_Letters.Location = new System.Drawing.Point(658, 0);
+            this.lbl_Letters.Name = "lbl_Letters";
+            this.lbl_Letters.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_Letters.Size = new System.Drawing.Size(11, 16);
+            this.lbl_Letters.TabIndex = 5;
+            this.lbl_Letters.Text = "0";
+            this.lbl_Letters.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lbl_Lines
+            // label5
             // 
-            this.lbl_Lines.AutoSize = true;
-            this.lbl_Lines.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbl_Lines.Font = new System.Drawing.Font("GE SS Two Light", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl_Lines.Location = new System.Drawing.Point(784, 0);
-            this.lbl_Lines.Name = "lbl_Lines";
-            this.lbl_Lines.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbl_Lines.Size = new System.Drawing.Size(11, 16);
-            this.lbl_Lines.TabIndex = 1;
-            this.lbl_Lines.Text = "0";
-            this.lbl_Lines.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label5.Font = new System.Drawing.Font("GE SS Two Light", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label5.Location = new System.Drawing.Point(669, 0);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(49, 19);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "الحروف :";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl_Words
             // 
@@ -382,30 +382,30 @@
             this.label4.Text = "الكلمات :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lbl_Letters
+            // lbl_Lines
             // 
-            this.lbl_Letters.AutoSize = true;
-            this.lbl_Letters.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbl_Letters.Font = new System.Drawing.Font("GE SS Two Light", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl_Letters.Location = new System.Drawing.Point(658, 0);
-            this.lbl_Letters.Name = "lbl_Letters";
-            this.lbl_Letters.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbl_Letters.Size = new System.Drawing.Size(11, 16);
-            this.lbl_Letters.TabIndex = 5;
-            this.lbl_Letters.Text = "0";
-            this.lbl_Letters.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl_Lines.AutoSize = true;
+            this.lbl_Lines.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_Lines.Font = new System.Drawing.Font("GE SS Two Light", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl_Lines.Location = new System.Drawing.Point(784, 0);
+            this.lbl_Lines.Name = "lbl_Lines";
+            this.lbl_Lines.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_Lines.Size = new System.Drawing.Size(11, 16);
+            this.lbl_Lines.TabIndex = 1;
+            this.lbl_Lines.Text = "0";
+            this.lbl_Lines.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
+            // label2
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Font = new System.Drawing.Font("GE SS Two Light", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label5.Location = new System.Drawing.Point(669, 0);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(49, 19);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "الحروف :";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Font = new System.Drawing.Font("GE SS Two Light", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2.Location = new System.Drawing.Point(795, 0);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(50, 19);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "الجمل :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Home
             // 

@@ -102,9 +102,17 @@ namespace FL_MA_Converter
             else txt_Output.Text = txt_Input.Text;
 
             // ReArrange
-            if(End && ch_ReArrange.Checked)
+            try
             {
-                ReArrange();
+                string fchar = txt_Input.Text.Substring(txt_Input.Text.Length - 1, 1);
+                if (fchar == "." && ch_ReArrange.Checked)
+                {
+                    ReArrange();
+                }
+            }
+            catch
+            {
+
             }
         }
 

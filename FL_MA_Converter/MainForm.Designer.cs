@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.pnl_Top = new System.Windows.Forms.Panel();
             this.pnl_Clicked = new System.Windows.Forms.Panel();
             this.pnl_Hover = new System.Windows.Forms.Panel();
@@ -36,23 +35,12 @@
             this.lbl_Add = new System.Windows.Forms.Label();
             this.lbl_Show = new System.Windows.Forms.Label();
             this.lbl_Home = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_Holder = new System.Windows.Forms.Panel();
             this.pnl_Top.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("GE SS Two Medium", 30F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(507, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(298, 86);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "المُنسق";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnl_Top
             // 
@@ -99,7 +87,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lbl_Add, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbl_Show, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbl_Home, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 5, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -150,6 +138,17 @@
             this.lbl_Home.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_Home.Click += new System.EventHandler(this.Nav_Buttons);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::FL_MA_Converter.Properties.Resources.LOGO;
+            this.pictureBox1.Location = new System.Drawing.Point(507, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(298, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // pnl_Holder
             // 
             this.pnl_Holder.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -169,6 +168,7 @@
             this.Font = new System.Drawing.Font("GE SS Two Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(800, 647);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "المُنسق";
@@ -176,13 +176,12 @@
             this.pnl_Top.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnl_Top;
         private System.Windows.Forms.Label lbl_Home;
         private System.Windows.Forms.Label lbl_Add;
@@ -191,6 +190,7 @@
         private System.Windows.Forms.Panel pnl_Hover;
         private System.Windows.Forms.Panel pnl_Clicked;
         private System.Windows.Forms.Panel pnl_Holder;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

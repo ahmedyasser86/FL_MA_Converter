@@ -184,13 +184,13 @@
         #endregion
         private System.Windows.Forms.Panel pnl_Top;
         private System.Windows.Forms.Label lbl_Home;
-        private System.Windows.Forms.Label lbl_Add;
-        private System.Windows.Forms.Label lbl_Show;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel pnl_Hover;
         private System.Windows.Forms.Panel pnl_Clicked;
         private System.Windows.Forms.Panel pnl_Holder;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Label lbl_Add;
+        public System.Windows.Forms.Label lbl_Show;
     }
 }
 

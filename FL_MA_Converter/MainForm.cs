@@ -53,7 +53,7 @@ namespace FL_MA_Converter
             }
         }
 
-        private void Nav_Click(Label lbl, Form frm)
+        public void Nav_Click(Label lbl, Form frm)
         {
             Clicked_Label = lbl.Name;
 

@@ -6,17 +6,27 @@ using System.Windows.Forms;
 
 namespace FL_MA_Converter
 {
-    static class Program
+    public static class Program
     {
+
+        public static MainForm frm;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+
+        public static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            DBCommands.OpenConn();
+
+            frm = new MainForm();
+
+            Application.Run(frm);
+
+            DBCommands.CloseConn();
         }
     }
 }

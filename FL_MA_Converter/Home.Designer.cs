@@ -213,7 +213,7 @@
             this.btn_Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(34)))), ((int)(((byte)(52)))));
             this.btn_Delete.FlatAppearance.BorderSize = 0;
             this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Delete.Font = new System.Drawing.Font("GE SS Two Light", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_Delete.Font = new System.Drawing.Font("GE SS Two Light", 14F);
             this.btn_Delete.ForeColor = System.Drawing.Color.White;
             this.btn_Delete.Location = new System.Drawing.Point(113, 12);
             this.btn_Delete.Name = "btn_Delete";
@@ -230,7 +230,7 @@
             this.btn_ReArrange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(87)))));
             this.btn_ReArrange.FlatAppearance.BorderSize = 0;
             this.btn_ReArrange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ReArrange.Font = new System.Drawing.Font("GE SS Two Light", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_ReArrange.Font = new System.Drawing.Font("GE SS Two Light", 14F);
             this.btn_ReArrange.Location = new System.Drawing.Point(310, 12);
             this.btn_ReArrange.Name = "btn_ReArrange";
             this.btn_ReArrange.Size = new System.Drawing.Size(138, 29);
@@ -246,7 +246,7 @@
             this.btn_Replace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(87)))));
             this.btn_Replace.FlatAppearance.BorderSize = 0;
             this.btn_Replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Replace.Font = new System.Drawing.Font("GE SS Two Light", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_Replace.Font = new System.Drawing.Font("GE SS Two Light", 14F);
             this.btn_Replace.Location = new System.Drawing.Point(507, 12);
             this.btn_Replace.Name = "btn_Replace";
             this.btn_Replace.Size = new System.Drawing.Size(138, 29);
@@ -276,10 +276,10 @@
             this.ch_ReArrange.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ch_ReArrange.FlatAppearance.BorderSize = 0;
             this.ch_ReArrange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ch_ReArrange.Font = new System.Drawing.Font("GE SS Two Light", 10.5F, System.Drawing.FontStyle.Bold);
-            this.ch_ReArrange.Location = new System.Drawing.Point(254, 1);
+            this.ch_ReArrange.Font = new System.Drawing.Font("GE SS Two Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ch_ReArrange.Location = new System.Drawing.Point(251, 0);
             this.ch_ReArrange.Name = "ch_ReArrange";
-            this.ch_ReArrange.Size = new System.Drawing.Size(92, 23);
+            this.ch_ReArrange.Size = new System.Drawing.Size(98, 25);
             this.ch_ReArrange.TabIndex = 0;
             this.ch_ReArrange.Text = "إعادة ترتيب";
             this.ch_ReArrange.UseVisualStyleBackColor = true;
@@ -293,10 +293,10 @@
             this.ch_Replace.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ch_Replace.FlatAppearance.BorderSize = 0;
             this.ch_Replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ch_Replace.Font = new System.Drawing.Font("GE SS Two Light", 10.5F, System.Drawing.FontStyle.Bold);
-            this.ch_Replace.Location = new System.Drawing.Point(392, 1);
+            this.ch_Replace.Font = new System.Drawing.Font("GE SS Two Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ch_Replace.Location = new System.Drawing.Point(389, 0);
             this.ch_Replace.Name = "ch_Replace";
-            this.ch_Replace.Size = new System.Drawing.Size(111, 23);
+            this.ch_Replace.Size = new System.Drawing.Size(117, 25);
             this.ch_Replace.TabIndex = 0;
             this.ch_Replace.Text = "تبديل الكلمات";
             this.ch_Replace.UseVisualStyleBackColor = true;
@@ -350,7 +350,7 @@
             // label5
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Font = new System.Drawing.Font("GE SS Two Light", 11F);
+            this.label5.Font = new System.Drawing.Font("GE SS Two Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label5.Location = new System.Drawing.Point(635, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -375,7 +375,7 @@
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Font = new System.Drawing.Font("GE SS Two Light", 11F);
+            this.label4.Font = new System.Drawing.Font("GE SS Two Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label4.Location = new System.Drawing.Point(710, 0);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -401,7 +401,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Font = new System.Drawing.Font("GE SS Two Light", 11F);
+            this.label2.Font = new System.Drawing.Font("GE SS Two Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label2.Location = new System.Drawing.Point(791, 0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

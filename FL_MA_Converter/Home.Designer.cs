@@ -39,8 +39,7 @@
             this.btn_Past = new System.Windows.Forms.Button();
             this.pnl_Down = new System.Windows.Forms.Panel();
             this.btn_Delete = new System.Windows.Forms.Button();
-            this.btn_ReArrange = new System.Windows.Forms.Button();
-            this.btn_Replace = new System.Windows.Forms.Button();
+            this.btn_Change = new System.Windows.Forms.Button();
             this.pnl_Up = new System.Windows.Forms.Panel();
             this.ch_ReArrange = new System.Windows.Forms.CheckBox();
             this.ch_Replace = new System.Windows.Forms.CheckBox();
@@ -52,6 +51,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_Lines = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pnl_Words = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,6 +84,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.82046F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.63749F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(845, 522);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -123,6 +124,7 @@
             this.txt_Output.Size = new System.Drawing.Size(371, 335);
             this.txt_Output.TabIndex = 1;
             this.txt_Output.Text = "";
+            this.txt_Output.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Txt_Output_MouseDown);
             // 
             // btn_Copy
             // 
@@ -199,8 +201,7 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.pnl_Down, 2);
             this.pnl_Down.Controls.Add(this.btn_Delete);
-            this.pnl_Down.Controls.Add(this.btn_ReArrange);
-            this.pnl_Down.Controls.Add(this.btn_Replace);
+            this.pnl_Down.Controls.Add(this.btn_Change);
             this.pnl_Down.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_Down.Location = new System.Drawing.Point(44, 445);
             this.pnl_Down.Name = "pnl_Down";
@@ -215,7 +216,7 @@
             this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Delete.Font = new System.Drawing.Font("GE SS Two Light", 14F);
             this.btn_Delete.ForeColor = System.Drawing.Color.White;
-            this.btn_Delete.Location = new System.Drawing.Point(113, 12);
+            this.btn_Delete.Location = new System.Drawing.Point(175, 12);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(138, 29);
             this.btn_Delete.TabIndex = 5;
@@ -224,37 +225,21 @@
             this.btn_Delete.UseVisualStyleBackColor = false;
             this.btn_Delete.Click += new System.EventHandler(this.Btn_Delete_Click);
             // 
-            // btn_ReArrange
+            // btn_Change
             // 
-            this.btn_ReArrange.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_ReArrange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(87)))));
-            this.btn_ReArrange.FlatAppearance.BorderSize = 0;
-            this.btn_ReArrange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ReArrange.Font = new System.Drawing.Font("GE SS Two Light", 14F);
-            this.btn_ReArrange.Location = new System.Drawing.Point(310, 12);
-            this.btn_ReArrange.Name = "btn_ReArrange";
-            this.btn_ReArrange.Size = new System.Drawing.Size(138, 29);
-            this.btn_ReArrange.TabIndex = 5;
-            this.btn_ReArrange.Text = "إعادة ترتيب";
-            this.btn_ReArrange.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_ReArrange.UseVisualStyleBackColor = false;
-            this.btn_ReArrange.Click += new System.EventHandler(this.Btn_ReArrange_Click);
-            // 
-            // btn_Replace
-            // 
-            this.btn_Replace.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Replace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(87)))));
-            this.btn_Replace.FlatAppearance.BorderSize = 0;
-            this.btn_Replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Replace.Font = new System.Drawing.Font("GE SS Two Light", 14F);
-            this.btn_Replace.Location = new System.Drawing.Point(507, 12);
-            this.btn_Replace.Name = "btn_Replace";
-            this.btn_Replace.Size = new System.Drawing.Size(138, 29);
-            this.btn_Replace.TabIndex = 5;
-            this.btn_Replace.Text = "تبديل الكلمات";
-            this.btn_Replace.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_Replace.UseVisualStyleBackColor = false;
-            this.btn_Replace.Click += new System.EventHandler(this.Btn_Replace_Click);
+            this.btn_Change.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Change.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
+            this.btn_Change.FlatAppearance.BorderSize = 0;
+            this.btn_Change.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Change.Font = new System.Drawing.Font("GE SS Two Light", 14F);
+            this.btn_Change.Location = new System.Drawing.Point(444, 12);
+            this.btn_Change.Name = "btn_Change";
+            this.btn_Change.Size = new System.Drawing.Size(138, 29);
+            this.btn_Change.TabIndex = 5;
+            this.btn_Change.Text = "تحويل";
+            this.btn_Change.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Change.UseVisualStyleBackColor = false;
+            this.btn_Change.Click += new System.EventHandler(this.Btn_Change_Click);
             // 
             // pnl_Up
             // 
@@ -410,12 +395,25 @@
             this.label2.Text = "الجمل :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pnl_Words
+            // 
+            this.pnl_Words.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnl_Words.AutoScroll = true;
+            this.pnl_Words.BackColor = System.Drawing.Color.White;
+            this.pnl_Words.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_Words.Location = new System.Drawing.Point(280, 92);
+            this.pnl_Words.Name = "pnl_Words";
+            this.pnl_Words.Size = new System.Drawing.Size(124, 155);
+            this.pnl_Words.TabIndex = 10;
+            this.pnl_Words.Visible = false;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(845, 522);
+            this.Controls.Add(this.pnl_Words);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("GE SS Two Medium", 9.75F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
@@ -453,9 +451,7 @@
         private System.Windows.Forms.Panel pnl_Up;
         private System.Windows.Forms.CheckBox ch_ReArrange;
         private System.Windows.Forms.CheckBox ch_Replace;
-        private System.Windows.Forms.Button btn_Replace;
         private System.Windows.Forms.Button btn_Delete;
-        private System.Windows.Forms.Button btn_ReArrange;
         private System.Windows.Forms.Label lbl_Error;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lbl_Letters;
@@ -464,5 +460,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_Lines;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_Change;
+        private System.Windows.Forms.Panel pnl_Words;
     }
 }

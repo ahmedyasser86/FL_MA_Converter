@@ -14,6 +14,15 @@ namespace FL_MA_Converter
     {
         Timer errorShow = new Timer();
 
+        List<string> Words = new List<string>();
+        List<string> Sens = new List<string>();
+        List<int> Para_Count = new List<int>();
+
+        List<chWord> chwords = new List<chWord>();
+
+        bool txtChanged = true;
+        string OutPut = "";
+
         public Home()
         {
             InitializeComponent();
@@ -60,16 +69,6 @@ namespace FL_MA_Converter
             errorShow.Start();
         }
 
-        private void Btn_Replace_Click(object sender, EventArgs e)
-        {
-            ShowError("هذا الجزء لم يتم برمجته بعد");
-        }
-
-        private void Btn_ReArrange_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Btn_Delete_Click(object sender, EventArgs e)
         {
             txt_Input.Text = "";
@@ -77,9 +76,280 @@ namespace FL_MA_Converter
             txt_Input.Focus();
         }
 
+        private void Check_Words(List<string> words)
+        {
+            List<WordsDB> w;
+
+            foreach (string s in Words)
+            {
+                w = DBCommands.Get_WordsW(s);
+
+                if (w.Count > 0)
+                {
+                    chwords.Add(new chWord(s, w));
+                }
+
+                w.RemoveRange(0, w.Count);
+            }
+        }
+
+        private void Remove_UnNeeded(List<string> arr)
+        {
+            List<int> ToDelete = new List<int>();
+            for (int i = 0, n = arr.Count; i < n; i++)
+            {
+                try
+                {
+                    // Check Start
+                    if (arr[i].Substring(0, 1) == "." || arr[i].Substring(0, 1) == "," || arr[i].Substring(0, 1) == " "
+                        || arr[i].Substring(0, 1) == "،" || arr[i].Substring(0, 1) == "\n")
+                    {
+                        arr[i] = arr[i].Substring(1);
+                    }
+
+                    // Check End
+                    if (arr[i].Substring(arr[i].Length - 1) == "." || arr[i].Substring(arr[i].Length - 1) == "," ||
+                        arr[i].Substring(arr[i].Length - 1) == " " || arr[i].Substring(arr[i].Length - 1) == "،" ||
+                        arr[i].Substring(arr[i].Length - 1) == "\n")
+                    {
+                        arr[i] = arr[i].Substring(0, arr[i].Length - 1);
+                    }
+
+                    if (arr[i] == "\n") throw new Exception();
+                }
+                catch
+                {
+                    ToDelete.Add(i);
+                }
+            }
+
+            foreach(int i in ToDelete)
+            {
+                arr.RemoveAt(i);
+            }
+        }
+
+        private void Check_Para()
+        {
+            string i = txt_Input.Text;
+            if (i.Substring(i.Length) == ".") i = i.Substring(0, i.Length - 1);
+            string[] p = i.Split('.');
+            foreach(string s in p)
+            {
+                string[] S = s.Split('،', ',', ';');
+
+                if (s.Length > 0) Para_Count.Add(S.Count());
+            }
+        }
+
+        private void PreChange()
+        {
+            // Clear Lists
+            Para_Count.RemoveRange(0, Para_Count.Count);
+            Sens.RemoveRange(0, Sens.Count);
+            Words.RemoveRange(0, Words.Count);
+            chwords.RemoveRange(0, chwords.Count);
+
+            // Get Data From TextBox
+            Sens = txt_Input.Text.Split('،', ',', '.', ';').ToList();
+            Words = txt_Input.Text.Split(' ', '\n').ToList();
+
+            // Remove UnNeeded Spaces and chars
+            Remove_UnNeeded(Sens);
+            Remove_UnNeeded(Words);
+
+            // Check Changable Words
+            chwords.RemoveRange(0, chwords.Count);
+            Check_Words(Words);
+
+            // Get Paragraphes details
+            Check_Para();
+
+            OutPut = "";
+        }
+
+        private void ReArrange(bool sh = true)
+        {
+            // Shuffle Sens
+            if (sh)
+            {
+                Random rng = new Random();
+                List<string> newLest = Sens.OrderBy(a => rng.Next()).ToList();
+                Sens = newLest;
+            }
+
+            // ReArrange
+            for(int i = 0, n = Para_Count.Count, tmp = 0; i < n;i++)
+            {
+                tmp += Para_Count[i];
+                for (int j = tmp - Para_Count[i]; j < tmp; j++)
+                {
+                    OutPut += Sens[j] + "، ";
+                }
+                OutPut = OutPut.Substring(0, OutPut.Length - 2);
+                OutPut += ".\n";
+            }
+            OutPut = OutPut.Substring(0, OutPut.Length - 1);
+        }
+
+        private void Change(bool ch = true)
+        {
+            if (ch)
+            {
+                foreach (chWord w in chwords)
+                {
+                    w.Change_Word(ref OutPut);
+                }
+            }
+            else
+            {
+                foreach(chWord w in chwords)
+                {
+                    w.GetCurrent(ref OutPut);
+                }
+            }
+        }
+
+        private void Btn_Change_Click(object sender, EventArgs e)
+        {
+            if (txtChanged && !String.IsNullOrEmpty(txt_Input.Text))
+            {
+                PreChange();
+                ReArrange(ch_ReArrange.Checked);
+                Change(ch_Replace.Checked);
+                txt_Output.Text = OutPut;
+                txtChanged = false;
+            }
+
+            else if (!txtChanged && !String.IsNullOrEmpty(txt_Input.Text))
+            {
+                OutPut = "";
+                ReArrange(ch_ReArrange.Checked);
+                Change(ch_Replace.Checked);
+                txt_Output.Text = OutPut;
+            }
+
+            ChangeColor();
+        }
+
         private void Txt_Input_TextChanged(object sender, EventArgs e)
         {
+            txtChanged = true;
+        }
 
+        public void Find(RichTextBox rtb, string word, Color color)
+        {
+            if (word == "")
+            {
+                MessageBox.Show("1");
+                return;
+            }
+            int s_start = rtb.SelectionStart, startIndex = 0, index;
+            while ((index = rtb.Text.IndexOf(word, startIndex)) != -1)
+            {
+                rtb.Select(index, word.Length);
+                rtb.SelectionColor = color;
+                startIndex = index + word.Length;
+            }
+        }
+
+        public void ChangeColor()
+        {
+            foreach(chWord w in chwords)
+            {
+                Find(txt_Output, w.current, Color.Red);
+            }
+        }
+
+        private void Txt_Output_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(txt_Output.SelectionLength >= 1)
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    CreateDropDownMenu(txt_Output.SelectedText, e.Location);
+                }
+            }
+        }
+
+        private void CreateDropDownMenu(string text, Point L)
+        {
+            List<WordsDB> words = new List<WordsDB>();
+            chWord ch = new chWord();
+            foreach (chWord c in chwords)
+            {
+                if(c.word == text)
+                {
+                    words = c.words;
+                    ch = c;
+                    break;
+                }
+
+                foreach(WordsDB db in c.words)
+                {
+                    if(db.Word == text)
+                    {
+                        words = c.words;
+                        ch = c;
+                        break;
+                    }
+                }
+            }
+
+            if(words.Count != 0)
+            {
+                pnl_Words.Show();
+                pnl_Words.Location = new Point((L.X + 42), (L.Y + 52));
+
+                foreach(WordsDB w in words)
+                {
+                    Button btn = new Button()
+                    {
+                        Name = w.Word,
+                        Text = w.Word,
+                        Font = new Font("GE SS Two Light", 12F),
+                        Height = 30,
+                        Dock = DockStyle.Top,
+                        ForeColor = Color.FromArgb(46, 64, 82),
+                        FlatStyle = FlatStyle.Flat,
+                    };
+                    pnl_Words.Controls.Add(btn);
+                    btn.Click += (S, E) =>
+                    {
+                        /*
+                        string tmp = txt_Output.Text;
+                        ch.ChangeManual(ref tmp, btn.Name);
+                        txt_Output.Text = tmp;
+                        */
+                        txt_Output.SelectedText = btn.Name;
+                        ch.current = btn.Name;
+                        ChangeColor();
+                        pnl_Words.Controls.Clear();
+                        pnl_Words.Hide();
+                        txt_Output.SelectionStart = 0;
+                        txt_Output.SelectionLength = 0;
+                    };
+                }
+
+                Button btn_Cancel = new Button()
+                {
+                    Dock = DockStyle.Top,
+                    Text = "إلغاء",
+                    BackColor = Color.FromArgb(65, 34, 52),
+                    ForeColor = Color.White,
+                    Font = new Font("GE SS Two Light", 12F),
+                    FlatStyle = FlatStyle.Flat,
+                    Height = 25
+                };
+                pnl_Words.Controls.Add(btn_Cancel);
+                btn_Cancel.SendToBack();
+                btn_Cancel.FlatAppearance.BorderSize = 0;
+                btn_Cancel.Click += (S, E) =>
+                 {
+                     pnl_Words.Controls.Clear();
+                     pnl_Words.Hide();
+                 };
+            }
         }
     }
 }

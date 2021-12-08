@@ -80,6 +80,7 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Members\chWord.cs" />
     <Compile Include="Members\DBCommands.cs" />
     <Compile Include="Members\Words.cs" />
     <Compile Include="Members\WordsDB.cs" />

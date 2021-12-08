@@ -63,29 +63,16 @@ namespace FL_MA_Converter
         {
             List<WordsDB> Words = new List<WordsDB>();
 
-            SqlCommand cID = new SqlCommand("SELECT ManaID FROM [Words] WHERE Word = N'" + word + "'", conn);
-            SqlDataReader rID = cID.ExecuteReader();
+            string sql = "SELECT * FROM Words WHERE ManaID=(SELECT ManaID FROM Words WHERE Word=N'" + word + "')";
 
-            string sqlcmd = "SELECT ManaID, Word FROM [Words] WHERE ";
-
-            while (rID.Read())
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader r = cmd.ExecuteReader();
+            while (r.Read())
             {
-                sqlcmd += "ManaID=" + rID[0] + " OR";
+                Words.Add(new WordsDB(Convert.ToInt32(r[0]), r[1].ToString()));
             }
 
-            rID.Close();
-
-            sqlcmd = sqlcmd.Substring(0, sqlcmd.Length - 3);
-            sqlcmd += " Order by ManaID";
-
-            SqlCommand cWords = new SqlCommand(sqlcmd, conn);
-            SqlDataReader rWords = cWords.ExecuteReader();
-            while (rWords.Read())
-            {
-                Words.Add(new WordsDB(Convert.ToInt32(rWords[0]), rWords[1].ToString()));
-            }
-
-            rWords.Close();
+            r.Close();
 
             return Words;
         }

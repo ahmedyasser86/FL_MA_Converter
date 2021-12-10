@@ -10,13 +10,15 @@ namespace FL_MA_Converter
     {
         public string word;
         public string current;
+        public string Type;
         public List<WordsDB> words;
+        public int SenIndex;
         int index = 0;
 
-        public chWord(string w, List<WordsDB> wrds)
+        public chWord(string w, List<WordsDB> wrds, string type, int i)
         {
             // Assign Data
-            word = w; words = wrds;
+            word = w; words = wrds; Type = type; SenIndex = i;
 
             // Shuffle list
             Random rng = new Random();

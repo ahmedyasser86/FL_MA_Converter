@@ -86,7 +86,7 @@ namespace FL_MA_Converter
 
                 if (w.Count > 0)
                 {
-                    chwords.Add(new chWord(s, w));
+                    // chwords.Add(new chWord(s, w));
                 }
 
                 w.RemoveRange(0, w.Count);
@@ -145,14 +145,19 @@ namespace FL_MA_Converter
         private void PreChange()
         {
             // Clear Lists
-            Para_Count.RemoveRange(0, Para_Count.Count);
-            Sens.RemoveRange(0, Sens.Count);
-            Words.RemoveRange(0, Words.Count);
-            chwords.RemoveRange(0, chwords.Count);
+            // TODO..
 
-            // Get Data From TextBox
+            // Get Paragraphes details
+            Check_Para();
+
+            // Split Text to Sens
             Sens = txt_Input.Text.Split('،', ',', '.', ';').ToList();
-            Words = txt_Input.Text.Split(' ', '\n').ToList();
+
+            // Check Changeble Sens..
+            Check_Sens(Sens);
+
+            // Check Manual Words
+            Check_ManWords();
 
             // Remove UnNeeded Spaces and chars
             Remove_UnNeeded(Sens);
@@ -162,10 +167,71 @@ namespace FL_MA_Converter
             chwords.RemoveRange(0, chwords.Count);
             Check_Words(Words);
 
-            // Get Paragraphes details
-            Check_Para();
 
             OutPut = "";
+        }
+
+        private void Check_Sens(List<string> sens)
+        {
+            for(int x = 0; x < sens.Count; x++)
+            {
+                // Split Sens To Words
+                string[] Words = sens[x].Split(' ');
+
+
+                for(int i = Words.Length; i > 1; i--)
+                {
+                    List<WordsDB> wordsDBs;
+
+                    for (int j = 0, L = Words.Length; j <= L - i; j++)
+                    {
+                        string Sen = "";
+
+                        for(int k = j; k < i + j; k++)
+                        {
+                            Sen += Words[k] + " ";
+                        }
+
+                        Sen = Sen.Substring(0, Sen.Length - 1);
+
+                        wordsDBs = DBCommands.Get_WordsW(Sen);
+
+                        if(wordsDBs.Count > 0 && i > 1)
+                        {
+                            chwords.Add(new chWord(Sen, wordsDBs, "S", x));
+                        }
+                        else if(wordsDBs.Count > 0 && i == 1)
+                        {
+                            chwords.Add(new chWord(Sen, wordsDBs, "W", x));
+                        }
+
+                        wordsDBs.RemoveRange(0, wordsDBs.Count);
+                    }
+                }
+            }
+        }
+
+        private void Check_ManWords()
+        {
+            foreach(chWord w in chwords)
+            {
+                if(w.Type == "L")
+                {
+                    foreach(chWord w2 in chwords)
+                    {
+                        if(w2.SenIndex == w.SenIndex)
+                        {
+                            if(w2.Type == "W")
+                            {
+                                foreach(string s in w.word.Split(' '))
+                                {
+                                    if (s == w2.word) w2.Type = "M";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         private void ReArrange(bool sh = true)
@@ -350,6 +416,11 @@ namespace FL_MA_Converter
                      pnl_Words.Hide();
                  };
             }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Check_Sens(new List<string>() { "انا أسمي احمد ياسر" });
         }
     }
 }

@@ -8,6 +8,9 @@ namespace FL_MA_Converter
 {
     class chWord
     {
+
+        Random rng = new Random();
+
         public string word;
         public string current;
         public string Type;
@@ -18,12 +21,7 @@ namespace FL_MA_Converter
         public chWord(string w, List<WordsDB> wrds, string type, int i)
         {
             // Assign Data
-            word = w; words = wrds; Type = type; SenIndex = i;
-
-            // Shuffle list
-            Random rng = new Random();
-            List<WordsDB> newlist = words.OrderBy(a => rng.Next()).ToList();
-            words = newlist;
+            word = w; words = wrds; Type = type; SenIndex = i; current = word;
         }
 
         public chWord()
@@ -31,23 +29,18 @@ namespace FL_MA_Converter
 
         }
 
-        public void Change_Word(ref string text)
+        public void Replace(List<string> sens)
         {
-            if (index >= words.Count) index = 0;
-            current = words[index].Word;
-            index++;
-            text = text.Replace(word, current);
-        }
+            string newWord = words[rng.Next(0, words.Count - 1)].Word;
 
-        public void GetCurrent(ref string text)
-        {
-            text = text.Replace(word, current);
-        }
+            while (newWord == current)
+            {
+                newWord = words[rng.Next(0, words.Count - 1)].Word;
+            }
 
-        public void ChangeManual(ref string text, string New)
-        {
-            text = text.Replace(current, New);
-            current = New;
+            sens[SenIndex] = sens[SenIndex].Replace(current, newWord);
+
+            current = newWord;
         }
     }
 }

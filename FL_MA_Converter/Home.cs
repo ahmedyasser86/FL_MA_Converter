@@ -71,26 +71,7 @@ namespace FL_MA_Converter
 
         private void Btn_Delete_Click(object sender, EventArgs e)
         {
-            txt_Input.Text = "";
-            txt_Output.Text = "";
-            txt_Input.Focus();
-        }
-
-        private void Check_Words(List<string> words)
-        {
-            List<WordsDB> w;
-
-            foreach (string s in Words)
-            {
-                w = DBCommands.Get_WordsW(s);
-
-                if (w.Count > 0)
-                {
-                    // chwords.Add(new chWord(s, w));
-                }
-
-                w.RemoveRange(0, w.Count);
-            }
+            // ToDo..
         }
 
         private void Remove_UnNeeded(List<string> arr)
@@ -153,20 +134,14 @@ namespace FL_MA_Converter
             // Split Text to Sens
             Sens = txt_Input.Text.Split('،', ',', '.', ';').ToList();
 
+            // Remove UnNeeded Spaces and chars
+            Remove_UnNeeded(Sens);
+
             // Check Changeble Sens..
             Check_Sens(Sens);
 
             // Check Manual Words
             Check_ManWords();
-
-            // Remove UnNeeded Spaces and chars
-            Remove_UnNeeded(Sens);
-            Remove_UnNeeded(Words);
-
-            // Check Changable Words
-            chwords.RemoveRange(0, chwords.Count);
-            Check_Words(Words);
-
 
             OutPut = "";
         }
@@ -179,7 +154,7 @@ namespace FL_MA_Converter
                 string[] Words = sens[x].Split(' ');
 
 
-                for(int i = Words.Length; i > 1; i--)
+                for(int i = Words.Length; i >= 1; i--)
                 {
                     List<WordsDB> wordsDBs;
 
@@ -193,7 +168,7 @@ namespace FL_MA_Converter
                         }
 
                         Sen = Sen.Substring(0, Sen.Length - 1);
-
+                        
                         wordsDBs = DBCommands.Get_WordsW(Sen);
 
                         if(wordsDBs.Count > 0 && i > 1)
@@ -215,7 +190,7 @@ namespace FL_MA_Converter
         {
             foreach(chWord w in chwords)
             {
-                if(w.Type == "L")
+                if(w.Type == "S")
                 {
                     foreach(chWord w2 in chwords)
                     {
@@ -260,18 +235,23 @@ namespace FL_MA_Converter
 
         private void Change(bool ch = true)
         {
-            if (ch)
+            // Change Sens First
+
+            foreach (chWord c in chwords)
             {
-                foreach (chWord w in chwords)
+                if(c.Type == "S")
                 {
-                    w.Change_Word(ref OutPut);
+                    c.Replace(Sens);
                 }
             }
-            else
+
+            // Change Words
+
+            foreach (chWord c in chwords)
             {
-                foreach(chWord w in chwords)
+                if (c.Type == "W")
                 {
-                    w.GetCurrent(ref OutPut);
+                    c.Replace(Sens);
                 }
             }
         }
@@ -281,8 +261,8 @@ namespace FL_MA_Converter
             if (txtChanged && !String.IsNullOrEmpty(txt_Input.Text))
             {
                 PreChange();
-                ReArrange(ch_ReArrange.Checked);
                 Change(ch_Replace.Checked);
+                ReArrange(ch_ReArrange.Checked);
                 txt_Output.Text = OutPut;
                 txtChanged = false;
             }
@@ -307,7 +287,6 @@ namespace FL_MA_Converter
         {
             if (word == "")
             {
-                MessageBox.Show("1");
                 return;
             }
             int s_start = rtb.SelectionStart, startIndex = 0, index;

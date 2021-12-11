@@ -85,7 +85,7 @@ namespace FL_MA_Converter
                 Font = new Font("GE SS Two Light", 12F, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleLeft,
                 ForeColor = Color.FromArgb(46, 64, 82),
-                Dock = DockStyle.Right,
+                Dock = DockStyle.Fill,
                 RightToLeft = RightToLeft.Yes
             };
 

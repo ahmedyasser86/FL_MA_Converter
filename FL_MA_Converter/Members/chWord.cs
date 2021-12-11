@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FL_MA_Converter
 {
@@ -31,16 +32,33 @@ namespace FL_MA_Converter
 
         public void Replace(List<string> sens)
         {
-            string newWord = words[rng.Next(0, words.Count - 1)].Word;
 
-            while (newWord == current)
+            if (words.Count > 1)
             {
-                newWord = words[rng.Next(0, words.Count - 1)].Word;
+                string newWord = words[rng.Next(0, words.Count)].Word;
+
+                while (newWord == current)
+                {
+                    newWord = words[rng.Next(0, words.Count)].Word;
+                }
+
+                sens[SenIndex] = sens[SenIndex].Replace(current, newWord);
+
+                current = newWord;
             }
+            else
+            {
+                for(int i = 0; i < words.Count; i++)
+                {
+                    if(words[i].Word != current)
+                    {
+                        sens[SenIndex] = sens[SenIndex].Replace(current, words[i].Word);
 
-            sens[SenIndex] = sens[SenIndex].Replace(current, newWord);
-
-            current = newWord;
+                        current = words[i].Word;
+                        break;
+                    }
+                }
+            }
         }
     }
 }

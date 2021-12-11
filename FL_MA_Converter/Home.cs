@@ -14,7 +14,6 @@ namespace FL_MA_Converter
     {
         Timer errorShow = new Timer();
 
-        List<string> Words = new List<string>();
         List<string> Sens = new List<string>();
         List<int> Para_Count = new List<int>();
 
@@ -33,16 +32,6 @@ namespace FL_MA_Converter
                 lbl_Error.Hide();
                 errorShow.Stop();
             };
-        }
-
-        public void AddTextColor(RichTextBox box, string text, Color color)
-        {
-            box.SelectionStart = box.TextLength;
-            box.SelectionLength = 0;
-
-            box.SelectionColor = color;
-            box.AppendText(text);
-            box.SelectionColor = box.ForeColor;
         }
 
         private void Btn_Past_Click(object sender, EventArgs e)
@@ -71,7 +60,14 @@ namespace FL_MA_Converter
 
         private void Btn_Delete_Click(object sender, EventArgs e)
         {
-            // ToDo..
+            Sens.RemoveRange(0, Sens.Count);
+            chwords.RemoveRange(0, chwords.Count);
+            Para_Count.RemoveRange(0, Para_Count.Count);
+            OutPut = "";
+
+            txt_Input.Text = "";
+            txt_Output.Text = "";
+            txt_Input.Focus();
         }
 
         private void Remove_UnNeeded(List<string> arr)
@@ -126,7 +122,10 @@ namespace FL_MA_Converter
         private void PreChange()
         {
             // Clear Lists
-            // TODO..
+            Sens.RemoveRange(0, Sens.Count);
+            chwords.RemoveRange(0, chwords.Count);
+            Para_Count.RemoveRange(0, Para_Count.Count);
+            OutPut = "";
 
             // Get Paragraphes details
             Check_Para();
@@ -156,7 +155,6 @@ namespace FL_MA_Converter
 
                 for(int i = Words.Length; i >= 1; i--)
                 {
-                    List<WordsDB> wordsDBs;
 
                     for (int j = 0, L = Words.Length; j <= L - i; j++)
                     {
@@ -168,8 +166,8 @@ namespace FL_MA_Converter
                         }
 
                         Sen = Sen.Substring(0, Sen.Length - 1);
-                        
-                        wordsDBs = DBCommands.Get_WordsW(Sen);
+
+                        List<WordsDB> wordsDBs = DBCommands.Get_WordsW(Sen);
 
                         if(wordsDBs.Count > 0 && i > 1)
                         {
@@ -179,8 +177,6 @@ namespace FL_MA_Converter
                         {
                             chwords.Add(new chWord(Sen, wordsDBs, "W", x));
                         }
-
-                        wordsDBs.RemoveRange(0, wordsDBs.Count);
                     }
                 }
             }
@@ -270,8 +266,8 @@ namespace FL_MA_Converter
             else if (!txtChanged && !String.IsNullOrEmpty(txt_Input.Text))
             {
                 OutPut = "";
-                ReArrange(ch_ReArrange.Checked);
                 Change(ch_Replace.Checked);
+                ReArrange(ch_ReArrange.Checked);
                 txt_Output.Text = OutPut;
             }
 
@@ -302,7 +298,10 @@ namespace FL_MA_Converter
         {
             foreach(chWord w in chwords)
             {
-                Find(txt_Output, w.current, Color.Red);
+                foreach(WordsDB word in w.words)
+                {
+                    Find(txt_Output, word.Word, Color.Red);
+                }
             }
         }
 
@@ -312,6 +311,41 @@ namespace FL_MA_Converter
             {
                 if (e.Button == MouseButtons.Right)
                 {
+                    string x = txt_Output.SelectedText.Substring(txt_Output.SelectionLength - 1, 1);
+                    if(x == " " || x == "\n" || x == "." || x == "،" || x == ";")
+                    {
+                        txt_Output.SelectionLength--;
+                    }
+
+                    string y = txt_Output.SelectedText.Substring(0, 1);
+                    if (y == " " || y == "\n" || y == "." || y == "،" || y == ";")
+                    {
+                        txt_Output.SelectionStart++;
+                    }
+
+                    CreateDropDownMenu(txt_Output.SelectedText, e.Location);
+                }
+            }
+            else
+            {
+                if(e.Button == MouseButtons.Right)
+                {
+                    // Get Clicked Word
+                    txt_Output.AutoWordSelection = true;
+                    for (int i = txt_Output.SelectionStart, end = txt_Output.Text.Length; i < end; i++)
+                    {
+                        if ((txt_Output.Text[i] == ' ' || txt_Output.Text[i] == '.' || txt_Output.Text[i] == '،'
+                            || txt_Output.Text[i] == '\n' || txt_Output.Text[i] == ';') &&
+                            txt_Output.SelectionLength == 0)
+                        {
+                            txt_Output.SelectionStart++;
+                            continue;
+                        }
+
+                        else if (txt_Output.Text[i] == ' ' || txt_Output.Text[i] == '.' || txt_Output.Text[i] == '،'
+                            || txt_Output.Text[i] == '\n' || txt_Output.Text[i] == ';') break;
+                        txt_Output.SelectionLength++;
+                    }
                     CreateDropDownMenu(txt_Output.SelectedText, e.Location);
                 }
             }
@@ -395,11 +429,6 @@ namespace FL_MA_Converter
                      pnl_Words.Hide();
                  };
             }
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            Check_Sens(new List<string>() { "انا أسمي احمد ياسر" });
         }
     }
 }

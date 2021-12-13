@@ -47,6 +47,7 @@ namespace FL_MA_Converter
             try
             {
                 conn.Close();
+                conn.Dispose();
             }
             catch
             {

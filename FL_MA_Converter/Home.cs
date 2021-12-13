@@ -277,6 +277,25 @@ namespace FL_MA_Converter
         private void Txt_Input_TextChanged(object sender, EventArgs e)
         {
             txtChanged = true;
+            int sencount = 0;
+            int wordcount = 0;
+            int charcount = 0;
+            foreach(char c in txt_Input.Text)
+            {
+                if (c == ' ') wordcount++;
+                else if(c == '،' || c == ',' || c == ';' || c == '.')
+                {
+                    wordcount++;
+                    sencount++;
+                }
+                else
+                {
+                    charcount++;
+                }
+            }
+            lbl_Letters.Text = charcount.ToString();
+            lbl_Lines.Text = sencount.ToString();
+            lbl_Words.Text = wordcount.ToString();
         }
 
         public void Find(RichTextBox rtb, string word, Color color)

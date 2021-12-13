@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace FL_MA_Converter
 {
@@ -27,6 +28,25 @@ namespace FL_MA_Converter
             Application.Run(frm);
 
             DBCommands.CloseConn();
+
+            // BackUpDB();
+        }
+
+        private static void BackUpDB()
+        {
+            DateTime now = new DateTime();
+            string path = @"C:\MonaseeqDB\";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            string filepath = Environment.CurrentDirectory + "\\myDB.mdf";
+            path += now.ToShortDateString() + ".mdf";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+            File.Copy(filepath, path);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace FL_MA_Converter
     {
         Timer errorShow = new Timer();
 
+        Random rng = new Random();
         List<string> Sens = new List<string>();
         List<int> Para_Count = new List<int>();
 
@@ -237,7 +238,7 @@ namespace FL_MA_Converter
             {
                 if(c.Type == "S")
                 {
-                    c.Replace(Sens);
+                    c.Replace(Sens, ref rng);
                 }
             }
 
@@ -247,7 +248,7 @@ namespace FL_MA_Converter
             {
                 if (c.Type == "W")
                 {
-                    c.Replace(Sens);
+                    c.Replace(Sens, ref rng);
                 }
             }
         }

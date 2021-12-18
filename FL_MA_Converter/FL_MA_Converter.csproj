@@ -145,10 +145,10 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Content Include="myDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="myDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>myDB.mdf</DependentUpon>
     </Content>
   </ItemGroup>

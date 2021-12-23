@@ -267,7 +267,7 @@
             // btn_AddM
             // 
             this.btn_AddM.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_AddM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
+            this.btn_AddM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
             this.btn_AddM.FlatAppearance.BorderSize = 0;
             this.btn_AddM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AddM.Font = new System.Drawing.Font("GE SS Two Light", 14F);
@@ -366,7 +366,7 @@
             // btn_AddWord
             // 
             this.btn_AddWord.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_AddWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
+            this.btn_AddWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
             this.btn_AddWord.FlatAppearance.BorderSize = 0;
             this.btn_AddWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AddWord.Font = new System.Drawing.Font("GE SS Two Light", 14F);
@@ -406,7 +406,7 @@
             // btn_Save
             // 
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
+            this.btn_Save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
             this.btn_Save.FlatAppearance.BorderSize = 0;
             this.btn_Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Save.Font = new System.Drawing.Font("GE SS Two Light", 14F);
@@ -422,7 +422,7 @@
             // btn_Cancel
             // 
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(34)))), ((int)(((byte)(52)))));
+            this.btn_Cancel.BackColor = System.Drawing.Color.Red;
             this.btn_Cancel.FlatAppearance.BorderSize = 0;
             this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Cancel.Font = new System.Drawing.Font("GE SS Two Light", 14F);

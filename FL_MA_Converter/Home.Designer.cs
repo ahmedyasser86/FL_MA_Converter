@@ -111,7 +111,7 @@
             // 
             // txt_Output
             // 
-            this.txt_Output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(87)))));
+            this.txt_Output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(221)))));
             this.txt_Output.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Output.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_Output.Font = new System.Drawing.Font("GE SS Two Light", 14F, System.Drawing.FontStyle.Bold);
@@ -128,7 +128,7 @@
             // 
             // btn_Copy
             // 
-            this.btn_Copy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
+            this.btn_Copy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
             this.btn_Copy.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_Copy.FlatAppearance.BorderSize = 0;
             this.btn_Copy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -182,7 +182,7 @@
             // 
             // btn_Past
             // 
-            this.btn_Past.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
+            this.btn_Past.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
             this.btn_Past.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_Past.FlatAppearance.BorderSize = 0;
             this.btn_Past.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -211,7 +211,7 @@
             // btn_Delete
             // 
             this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(34)))), ((int)(((byte)(52)))));
+            this.btn_Delete.BackColor = System.Drawing.Color.Red;
             this.btn_Delete.FlatAppearance.BorderSize = 0;
             this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Delete.Font = new System.Drawing.Font("GE SS Two Light", 14F);
@@ -228,7 +228,7 @@
             // btn_Change
             // 
             this.btn_Change.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Change.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(217)))), ((int)(((byte)(191)))));
+            this.btn_Change.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
             this.btn_Change.FlatAppearance.BorderSize = 0;
             this.btn_Change.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Change.Font = new System.Drawing.Font("GE SS Two Light", 14F);

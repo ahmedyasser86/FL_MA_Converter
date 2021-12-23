@@ -92,7 +92,7 @@ namespace FL_MA_Converter
             Button btn = new Button()
             {
                 FlatStyle = FlatStyle.Flat,
-                BackColor = Color.FromArgb(65, 34, 52),
+                BackColor = Color.Red,
                 ForeColor = Color.White,
                 Font = new Font("GE SS Two Light", 12F),
                 Height = lbl.Height,

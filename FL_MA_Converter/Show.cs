@@ -100,7 +100,7 @@ namespace FL_MA_Converter
                     Button btn_Delete = new Button()
                     {
                         FlatStyle = FlatStyle.Flat,
-                        BackColor = Color.FromArgb(65, 34, 52),
+                        BackColor = Color.Red,
                         ForeColor = Color.White,
                         Font = new Font("GE SS Two Light", 14F),
                         Height = 131,
